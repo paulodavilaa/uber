@@ -1,0 +1,52 @@
+use('myDB')
+// db.createCollection('productos')
+// db.productos.insertOne({
+//   'nombre':'Disco duro'
+// })
+// db.createCollection('personas')
+// db.personas.insertOne({
+//   'nombre':'José'
+// })
+// db.productos.drop()
+// db.dropDatabase()
+
+// db.createCollection('productos')
+
+// db.productos.insertOne({
+//   "nombre":"laptop",
+//   "precio":15000,
+//   "activo":"true",
+//   "creacion": new Date(1/1/2022),
+//   "fabricante":{
+//     "nombre":"dell",
+//     "version":"xps",
+//     "ubicacion":{
+//       "pais":"USA",
+//       "ciudad":"Chicago",
+//       "domicilio":"conocido"
+//     }
+//   }
+// })
+
+// db.productos.insertMany([
+//   {
+//     'nombre':'mouse',
+//     'descripcion':'razer mouse',
+//     'tags': ['computadora','gaming'],
+//     'cantidad': 14,
+//     "creacion": new Date()
+//   },
+//   {
+//     "nombre":'monitor',
+//     "descripcion":"monitor lg",
+//     "tags":["computadoras","gaming"],
+//     "cantidad": 3,
+//     "creacion": new Date()
+//   }
+// ])
+
+// db.productos.findOne({"nombre":'mouse'})
+// db.productos.find({"precio": {$lt:10000}})
+
+db.productos.update({'nombre':'mouse'}, {$set:{'precio':200}})
+db.productos.find().forEach(function(p) {print('Nombre: ' + p.nombre, "Precio: " + p.precio)})
