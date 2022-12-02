@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 
-df = pd.read_csv('internacionalLimpio1.csv')
+df = pd.read_csv('internacionalLimpio2.csv')
 
 st.set_page_config(layout="wide")
 
@@ -41,13 +41,13 @@ with plot_col3:
     st.write(plot2)
 
 with plot_col4:
+    st.markdown("### Diagrama Primera Opción - Estatus - Rango")
+    plot4 = px.parallel_categories(df, dimensions=['RangoPromedios', 'EstatusLimpio', 'TipoIntercambio'],
+                color="TipoIntercambio", color_continuous_scale=px.colors.diverging.Tealrose,
+                labels={'RangoPromedios':'Rango de Promedios', 'EstatusLimpio':'Estatus', 'TipoIntercambio':'Intercambio "1" o Study Abroad "0"'})
+    st.write(plot4)
+
+with plot_col4:
     st.markdown("### Rango Promedios - Estatus")
     plot4 = px.density_heatmap(df, x="RangoPromedios", y="EstatusLimpio")
     st.write(plot4)
-
-with plot_col5:
-    st.markdown("### Diagrama Primera Opción - Estatus - Rango")
-    plot5 = px.parallel_categories(df, dimensions=['RangoPromedios', 'EstatusLimpio', 'TipoIntercambio'],
-                color="TipoIntercambio", color_continuous_scale=px.colors.diverging.Tealrose,
-                labels={'RangoPromedios':'Rango de Promedios', 'EstatusLimpio':'Estatus', 'TipoIntercambio':'Intercambio "1" o Study Abroad "0"'})
-    st.write(plot_col5)

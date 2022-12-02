@@ -83,18 +83,3 @@ def load_data(nrows):
 data = load_data(100)
 
 st.dataframe(data)
-
-#@st.cache
-#def load_data_byclass(Ship_Mode):
-#    filtered_data_byclass = data[data['Ship Mode'] == Ship_Mode]
-
-#    return filtered_data_byclass
-
-#agree = sidebar.checkbox("show DataSet Overview ? ")
-#if agree:
-#    if (selected_class):
-#        filterbyclass = load_data_byclass(selected_class)
-#        count_row = filterbyclass.shape[0]
-#        st.write(f"Numero total de ordenes filtradas: {count_row}")
-
-#        st.dataframe(filterbyclass)
